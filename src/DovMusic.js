@@ -20,6 +20,33 @@ export class DovMusic {
         return result[artist]
     }
 
+    async getTopArtists() {
+        //Returns an array of the current top artists from the db
+        let result     = await this.fetchData('chart.getTopArtists')
+        let topArtists = []
+        result.artists.artist.forEach(curArtist => {
+            topArtists.push(curArtist.name)
+        })
+        return topArtists
+    }
 
+    async getTopTracks(artist) {
+        //Return an array of top tracks of the artist from the db
+        let result     = await this.fetchData('artist.getTopTracks', artist)
+        let trackNames = []
+        if (result) {
+            result.toptracks.track.forEach(song => {
+                trackNames.push(song.name)
+            })
+            return trackNames
+        }
+        return undefined
+    }
+
+    async getSimilar(artist) {
+        //Returns an object with the similar artists from the db
+        let result = await this.fetchData('artist.getSimilar', artist)
+        return result ? result.similarartists.artist : undefined
+    }
 }
 

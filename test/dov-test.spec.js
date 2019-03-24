@@ -133,5 +133,41 @@ describe('Dov Music', () => {
                 expect(await mock.superFetchData('artist.getinfo', 'muse')).to.be.undefined
             })
         })
+
+        describe('#getArtistInfo', function () {
+            it('retrieves information about an artist that exists', async () => {
+                expect(await mock.getArtistInfo('muse')).to.be.eql(dbStub['artist.getinfo']['artist'].muse)
+            })
+
+            it('returns undefined for an artist that doesn\'nt exist', async () => {
+                expect(await mock.getArtistInfo('null')).to.be.undefined
+            })
+        })
+
+        describe('#getTopArtists', function () {
+            it('returns the current artists in the top chart', async () => {
+                expect(await mock.getTopArtists()).to.be.eql(['radiohead', 'muse', 'beyonce'])
+            })
+        })
+
+        describe('#getTopTracks', function () {
+            it('returns top tracks of artist', async () => {
+                expect(await mock.getTopTracks('muse')).to.be.eql(['creep', 'starlight'])
+            })
+
+            it('returns undefined for artists that dont exist', async () => {
+                expect(await mock.getTopTracks('nonExistent')).to.be.undefined
+            })
+        })
+
+        describe('#getSimilar', function () {
+            it('returns similar artists of artist', async () => {
+                expect(await mock.getSimilar('muse')).to.be.eql([{name: 'radiohead'}])
+            })
+
+            it('returns undefined for artist that doesn\'nt exist', async () => {
+                expect(await mock.getSimilar('nonExistent')).to.be.undefined
+            })
+        })
     })
 })
