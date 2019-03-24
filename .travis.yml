@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- node
+before_script:
+- npm run test
+after_script:
+- npm run test
+deploy:
+  provider: heroku
+  api_key:
+    secure: cEaeE4vDPfTrIcKAiJ3j+lArNENJ3pEnbKnvUJA7DBYmCaqufidf7VYhz8yLTsj+sIZFvlEPvaAtv3GfeGTBBecv1mTyr4G8yXrZiPnSkA4PTIuj5iKcQh+i/CshrDEM1io8RBHghoBwKih/t97BSw9TRP7uX4IGeWt+LiTt39fDOq46kod22fcJ65Nx57TCYZ1m6JjlRYXqkIJwB3GAw9t5yyixEIUKmiWQlj6dIKos+W0YhFBzyemZlzaHhCbnvqCXqRKlKiFlPJxcjVa5gmQvo9EkmEiD9LRJNljv3HUUVBcwDWskcSnQ/01ItHeGXoE6k50lgqjvjUw62Mi/Vk651lF3ugdhhwl3IdUB7cjxYqL8sMMtNLVWu3w1VjwltCYMlEAo4JOAi7E6XLlaUAKRwmNjdorX9fl1R3baYUMPYFAx86po6qRgXBnrWTgvBpRGI/Df6cn02YhY6rsqG1pL59ZmGAw9igJ0GrZr8MmNx4I0ZGnCxYRRVBRC8go85qQd7LNyPiNcatigDTYJrDf2El9ujLR/GoSI/4RxvLmSIrcfOSPsOEZwlD6367w844i+TCj95xBwurOtEW/ps1qcw29903FQpyg8c6FvnAr6HKfDPYxqnsIdu1/W3+CYjghzgDsSAqd/+Wze3VXjABFL2HZbLh2oVWLvak4LXvg=
+  app: tdd-assignment
