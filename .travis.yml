@@ -3,6 +3,8 @@ node_js:
 - node
 before_script:
 - npm run test
+- npm run MDhtml
+- npm run build
 after_script:
 - npm run test
 deploy:

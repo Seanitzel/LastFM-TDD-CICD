@@ -170,4 +170,26 @@ describe('Dov Music', () => {
             })
         })
     })
+
+    describe('Feature Level', () => {
+        describe('#commonSongNames', () => {
+            it('returns an array of song names that other artists share', async () => {
+                expect(await mock.commonSongNames('muse')).to.be.eql([{song: 'creep', artist: 'radiohead'}])
+            })
+
+            it('returns an empty array when artist doen\'nt exist', async () => {
+                expect(await mock.commonSongNames('nonExistent')).to.be.undefined
+            })
+        })
+
+        describe('#artistInChart', () => {
+            it('returns true when artist is in top charts', async () => {
+                expect(await mock.artistInChart('radiohead')).to.be.true
+            })
+
+            it('returns false when artist is not in top charts', async () => {
+                expect(await mock.artistInChart('kanye west')).to.be.false
+            })
+        })
+    })
 })

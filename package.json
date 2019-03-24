@@ -5,10 +5,10 @@
     "main": "src/index.js",
     "scripts": {
         "build": "babel src --out-dir dist",
-        "serve": "node dist/index.js",
+        "serve": "nodemon --exec babel-node src/index.js",
         "MDhtml": "node md2html.js",
         "test": "mocha --require @babel/register \"test/**/*.spec.js\"",
-        "start": "nodemon --exec babel-node src/index.js",
+        "start": "node dist/index.js",
         "coverage": "cross-env NODE_ENV=test nyc npm run test -- --reporter landing --cache",
         "report": "nyc report --root coverage --format html",
         "lint": "eslint ./src --fix"

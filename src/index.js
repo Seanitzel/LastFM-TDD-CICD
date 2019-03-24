@@ -16,5 +16,5 @@ app.use(express.static(__dirname + '../coverage'));
 
 
 app.listen(process.env.PORT || 4000, function(){
-    console.log('Your node js server is running');
+    console.log('Server Running');
 });

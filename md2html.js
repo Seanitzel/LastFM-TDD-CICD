@@ -4,7 +4,7 @@ let showdown  = require('showdown'),
 
 var fs = require('fs-extra');
 
-let readmeText = fs.readFileSync('../README.md','utf8')
+let readmeText = fs.readFileSync('./README.md','utf8')
 
 
 let html = converter.makeHtml(readmeText);

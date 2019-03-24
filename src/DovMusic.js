@@ -48,5 +48,34 @@ export class DovMusic {
         let result = await this.fetchData('artist.getSimilar', artist)
         return result ? result.similarartists.artist : undefined
     }
+
+    async commonSongNames(artist) {
+        //Returns an array containing songs with the same name of the artist and similar artists
+        const artistTopTracks = await this.getTopTracks(artist)
+        const similarArtists  = await this.getSimilar(artist)
+        if (similarArtists === undefined) {
+            return undefined
+        }
+        let similarDB = []
+
+        for (const curArtist of similarArtists) {
+            const curTopTracks = await this.getTopTracks(curArtist.name)
+            for (const curTrack of curTopTracks) {
+                if (artistTopTracks.includes(curTrack)) {
+                    similarDB.push({
+                        song:   curTrack,
+                        artist: curArtist.name,
+                    })
+                }
+            }
+        }
+        return similarDB
+    }
+
+    async artistInChart(artist) {
+        //Returns a boolean if the artist is in the current top artists
+        let curTopArtists = await this.getTopArtists()
+        return !!curTopArtists.includes(artist)
+    }
 }
 
