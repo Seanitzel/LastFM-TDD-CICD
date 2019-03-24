@@ -1,3 +1,5 @@
+#### [Coverage](coverage)
+
 ### Install all dependencies 
 npm install
 ### Run tests
