@@ -13,5 +13,13 @@ export class DovMusic {
         result         = await response.json()
         return result.error ? undefined : result
     }
+
+    async getArtistInfo(artist) {
+        //Returns an object with the artist data from the db
+        let result = await this.fetchData('artist.getinfo', artist)
+        return result[artist]
+    }
+
+
 }
 
