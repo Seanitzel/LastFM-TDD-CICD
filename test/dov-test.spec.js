@@ -130,7 +130,7 @@ describe('Dov Music', () => {
             })
 
             it('gets response when making a real request to the api', async () => {
-                expect(await mock.superFetchData('artist.getinfo', 'muse')).to.be.undefined
+                expect(await mock.superFetchData('nonExistent')).to.be.undefined
             })
         })
 
