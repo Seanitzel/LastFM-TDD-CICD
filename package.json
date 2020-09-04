@@ -32,7 +32,7 @@
         "mocha": "^5.2.0",
         "nodemon": "^1.18.10",
         "nyc": "^13.3.0",
-        "showdown": "^1.9.0"
+        "showdown": "^1.9.1"
     },
     "dependencies": {
         "express": "^4.16.4",
